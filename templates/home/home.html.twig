@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}STAGi{% endblock %}
+
+
+{% block body %}
+ 
+	    
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="{{path('app_register')}}"><button class="btn btn-light " type="button" style =" position: absolute;
+         width: 89px;height: 45px;left: 1080px; top: 55px; background: #FFFFFF; border-radius: 14px; 
+         border: none ;font-family:'Baloo 2'; color:#04356F;font-size: 20px;">Sign Up</button></a>
+        <a href="{{ path('app_login')}}"><button class="btn btn-primary" type="button" style =" position: absolute;
+         width: 89px;height: 45px;left: 1175px; top: 55px; background: #1E539C; border-radius: 14px; 
+         border: none ;font-family:'Baloo 2';color:#FFFFFF;font-size: 20px; ">Sign In</button></a>
+      </div>
+   
+<div>
+<p class="slogan ">Salut, tu cherche une offre <br>de stage ?</p><br>
+       <p id="l">Nous le trouvons pour toi ..!</p>
+      <a href="/offre"><button class="btn btn-warning" type="button" style ="position: absolute; width: 200px; height: 80px;
+        left: 234px; top: 420px; background: #EC9F57; border-radius: 10px; font-family: 'Arvo';font-size: 20px;
+        color: #FFFFFF;border:none;">Voir nos offres <img src={{asset('media/deco.png')}} width="20" height="20"></button></a>
+        
+</div>
+<div>
+<p  style ="position: absolute; width: 671px; height: 68px; left: 660px; top: 400px;
+    font-family: 'Alegreya Sans SC'; font-style: normal; font-weight: 400; font-size: 35px; line-height: 68px;
+    display: flex; align-items: center; color: #82E8FF;" > COMMENT FONCTIONNE STAGi ?</p>
+
+    <p style ="position: absolute;width: 160px;height: 48px;left: 670px;top: 540px;font-family: 'ABeeZee';
+    font-style: normal;font-weight: 400;font-size: 33px;color: #FFFFFF;" >Postuler </p>
+    <p style ="position: absolute;width: 357px;height: 48px;left: 670px;top: 632px;font-family: 'ABeeZee';
+    font-style: normal;font-weight: 400;font-size: 33px;color: #FFFFFF;" >Parler-nous de toi </p>
+    <p style =" position: absolute;width: 539px;height: 60px;left: 670px;top: 718px;font-family: 'ABeeZee';
+    font-style: normal;font-weight: 400;font-size: 33px;color: #FFFFFF;" >Recherche sur mesure </p> 
+    <p style =" position: absolute;width: 486px;height: 48px;left: 670px;top: 811px;font-family: 'ABeeZee';
+    font-style: normal;font-weight: 400;font-size: 33px;color: #FFFFFF;" >Rencontre les entreprises </p>
+    <img style =" position: absolute;width: 430px;height: 65px;margin-left: 919px;margin-top: 124px;"  
+    src={{asset('media/rec.png')}} >
+    <img style =" position: absolute;width: 290px;height: 65px;margin-left: 1059px;margin-top: 220px;" 
+    src={{asset('media/rec.png')}} >
+    <img style ="position: absolute;width: 229px;height: 65px;margin-left: 1120px;margin-top: 310px;"
+     src={{asset('media/rec.png')}} >
+    <img style ="  position: absolute;width: 160px;height: 65px;margin-left: 1189px;margin-top: 400px;" 
+    src={{asset('media/rec.png')}} >
+    <img style ="position: absolute;width: 50px;height: 50px;margin-left: 930px;margin-top: 132px;" 
+    src={{asset('media/cv.png')}} >
+    <img style ="position: absolute;width: 50px;height: 50px;margin-left: 1070px;margin-top: 227px;" 
+    src={{asset('media/apl.png')}} >
+    <img style ="  position: absolute;width: 50px;height: 50px;margin-left: 1135px;margin-top: 320px;" 
+    src={{asset('media/rech.png')}} >
+    <img style =" position: absolute;width: 50px;height: 50px;margin-left: 1205px;margin-top: 407px;" 
+    src={{asset('media/nego.png')}} >
+
+</div>
+<div class="espcon" style ="width: 380px;height: 230px;">
+ <p id ="cond" style =" font-size: 40px;">Condidat</p>
+  <a href="/user"><button class="btn btn-warning" type="button" style ="position: absolute; width: 279px; height: 64px;
+         background: #EC9F57; border-radius: 10px; font-family: 'Arvo';font-size: 30px;
+        color: #FFFFFF;border:none;margin-top:130; margin-left:50px;">Publier votre CV</button></a>
+</div>
+<div class="espetr" style ="width: 450px;height: 230px;">
+ <p id ="etrp" style =" font-size: 40px;">Entreprise</p>
+ <a href="/user"><button class="btn btn-warning" type="button" style ="position: absolute; width: 368px; height: 64px;
+         background: #EC9F57; border-radius: 10px; font-family: 'Arvo';font-size: 30px;
+        color: #FFFFFF;border:none;margin-top:130; margin-left:40px;">Diffuser votre annonce</button></a>
+</div>
+
+<div class="orange"style ="position: absolute;width: 1357px;height: 1173px;left: -8px;top: 1370px;">
+ <div class="social" style ="width: 140px;height: 273px;"> 
+    <a href="/contact"><img  style ="position: absolute;width: 50px;height: 50px;margin-left: 70px;margin-top: 30px;" 
+              src={{asset('media/tel.png')}}  ></a>
+    <a href="/contact"><img  style ="position: absolute;width: 50px;height: 50px;margin-left: 70px;margin-top: 110px;"
+              src={{asset('media/mail.png')}}  ></a> 
+    <a href="/contact"><img  style ="position: absolute;width: 55px;height: 55px;margin-left: 70px;margin-top: 190px;"
+              src={{asset('media/gps.png')}}  > </a>
+   </div>
+   <p class="up" style ="margin-top: 100px;margin-left: 330px;">TOUTES LES OFFRES SUR VOTRE MOBILE !</p>
+   <p class="sup" style ="margin-top: 180px;margin-left: 300px;"> Retrouver toutes les fonctionnalités de STAGi sur votre smartphone</p>
+    <img id="playstore" style ="margin-top: 290px;margin-left: 400px;" src={{asset('media/playstore.png')}} >
+    <img id="appstore" style ="margin-top: 290px;margin-left: 700px;" src={{asset('media/appstore.png')}} >
+ </div>
+ <div>
+ <p id="high1" style =" margin-left: 200px;margin-top: 1430px;">Entreprise</p>
+ <div class="normal1" style ="margin-left: 230px;margin-top: 1530px;font-size: 25px;">
+ <p> Poster une offre</p>
+ <p> Trouver une Alternance</p>
+ <p> Créer mon compte</p>
+ <p> Se connecter</p>
+ </div>
+ </div>
+ <div>
+  <p id="high2" style =" margin-left: 936px;margin-top: 1430px;">Condidat</p>
+  <div class="normal2" style ="margin-left: 960px;margin-top: 1530px;font-size: 25px;">
+ <p> Trouver un stage</p>
+ <p> Accés CVthèque</p>
+ <p> Créer mon profil</p>
+ <p> Se connecter</p>
+ </div>
+ 
+
+
+ 
+
+  
+{% endblock %}
+
+{% block footer %}
+
+<footer>
+  
+</footer>
+
+  
+  
+{% endblock %}
