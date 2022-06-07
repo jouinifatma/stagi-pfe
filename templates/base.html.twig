@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -11,11 +11,12 @@
         <link href="{{ asset('assets/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet"/>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
     {% endblock %}
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}"/>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-lg-5">
@@ -58,14 +59,21 @@
         </div>
     </div>
 </nav>
+<!-- Begin page content -->
+<main class="flex-shrink-0">
 <div class="container">
+    <br>
     {% block body %}
 
     {% endblock %}
 </div>
+</main>
+
 <!-- Footer-->
-<footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; STAGI 2022</p></div>
+<footer class="footer mt-auto py-3 bg-dark">
+    <div class="container text-center">
+        <span class="text-muted">Copyright &copy; STAGI {{ "now"|date('Y') }}</span>
+    </div>
 </footer>
 {% block javascripts %}
     <!-- Bootstrap core JS-->
