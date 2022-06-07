@@ -7,14 +7,13 @@
     <meta name="author" content=""/>
     <title>STAGI - {% block title %}{% endblock %}</title>
     {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
+        <!-- Bootstrap icons-->
+        <link href="{{ asset('assets/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet"/>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
     {% endblock %}
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
-    <!-- Bootstrap icons-->
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.ico') }}"/>
 </head>
 <body>
 <!-- Responsive navbar-->
@@ -68,5 +67,11 @@
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; STAGI 2022</p></div>
 </footer>
+{% block javascripts %}
+    <!-- Bootstrap core JS-->
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Core theme JS-->
+    <script src="{{ asset('js/scripts.js') }}"></script>
+{% endblock %}
 </body>
 </html>
