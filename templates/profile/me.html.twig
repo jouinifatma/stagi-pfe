@@ -4,4 +4,35 @@
 
 {% block body %}
     Bonjour, <b>{{ app.user.fullName }}</b> (étudiant)
+    {% if app.user.profile %}
+        <a href="{{ path('app_profile_edit', {'id': app.user.id}) }}" class="btn btn-light float-end">
+            <i class="bi bi-pencil"></i> Mise à jour
+        </a>
+    {% else %}
+        <a href="{{ path('app_profile_new', {'id': app.user.id}) }}" class="btn btn-primary float-end">
+            <i class="bi bi-pencil"></i> Crée
+        </a>
+    {% endif %}
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 {% endblock %}

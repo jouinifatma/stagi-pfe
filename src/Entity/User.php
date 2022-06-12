@@ -19,7 +19,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private $id = null;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -41,6 +41,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $fullName;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Profile::class, mappedBy="owner", cascade={"persist", "remove"})
+     */
+    private $profile;
 
     public function getId(): ?int
     {
@@ -66,7 +71,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -74,7 +79,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -139,6 +144,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setFullName(string $fullName): self
     {
         $this->fullName = $fullName;
+
+        return $this;
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return $this->profile;
+    }
+
+    public function setProfile(Profile $profile): self
+    {
+        // set the owning side of the relation if necessary
+        if ($profile->getOwner() !== $this) {
+            $profile->setOwner($this);
+        }
+
+        $this->profile = $profile;
 
         return $this;
     }

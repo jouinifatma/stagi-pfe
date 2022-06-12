@@ -43,7 +43,7 @@
                             {{ app.user.fullName|title }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ path('app_profile') }}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_profile_me') }}">Profile</a></li>
                             <li><a class="dropdown-item" href="{{ path('app_change_password') }}">Mot de passe</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -61,12 +61,12 @@
 </nav>
 <!-- Begin page content -->
 <main class="flex-shrink-0">
-<div class="container">
-    <br>
-    {% block body %}
+    <div class="container">
+        <br>
+        {% block body %}
 
-    {% endblock %}
-</div>
+        {% endblock %}
+    </div>
 </main>
 
 <!-- Footer-->

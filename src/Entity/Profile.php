@@ -15,12 +15,17 @@ class Profile
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private $id = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $company;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $activity;
 
     /**
      * @ORM\Column(type="integer")
@@ -45,12 +50,8 @@ class Profile
     /**
      * @ORM\Column(type="integer")
      */
-    private $postal_code;
+    private $postalCode;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -63,24 +64,29 @@ class Profile
     private $logo;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $activity;
+    private $webSite;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $web_site;
-
+    private $type;
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private $created_at;
+    private $createdAt;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="profile", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $user_id;
+    private $owner;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -95,6 +101,18 @@ class Profile
     public function setCompany(?string $company): self
     {
         $this->company = $company;
+
+        return $this;
+    }
+
+    public function getActivity(): ?string
+    {
+        return $this->activity;
+    }
+
+    public function setActivity(?string $activity): self
+    {
+        $this->activity = $activity;
 
         return $this;
     }
@@ -149,24 +167,12 @@ class Profile
 
     public function getPostalCode(): ?int
     {
-        return $this->postal_code;
+        return $this->postalCode;
     }
 
-    public function setPostalCode(int $postal_code): self
+    public function setPostalCode(int $postalCode): self
     {
-        $this->postal_code = $postal_code;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
+        $this->postalCode = $postalCode;
 
         return $this;
     }
@@ -195,51 +201,53 @@ class Profile
         return $this;
     }
 
-    public function getActivity(): ?string
+    public function getWebSite(): ?string
     {
-        return $this->activity;
+        return $this->webSite;
     }
 
-    public function setActivity(?string $activity): self
+    public function setWebSite(string $webSite): self
     {
-        $this->activity = $activity;
+        $this->webSite = $webSite;
 
         return $this;
     }
 
-    public function getWebSite(): ?string
+    public function getType(): ?string
     {
-        return $this->web_site;
+        return $this->type;
     }
 
-    public function setWebSite(string $web_site): self
+    public function setType(string $type): self
     {
-        $this->web_site = $web_site;
+        $this->type = $type;
 
         return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(?\DateTimeInterface $created_at): self
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    public function getUserId(): ?int
+    public function getOwner(): ?User
     {
-        return $this->user_id;
+        return $this->owner;
     }
 
-    public function setUserId(int $user_id): self
+    public function setOwner(User $owner): self
     {
-        $this->user_id = $user_id;
+        $this->owner = $owner;
 
         return $this;
     }
+
+
 }
